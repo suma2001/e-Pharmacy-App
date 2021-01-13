@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css?family=Amiri');
+
+html, body{
+  height: 100%;
+  width: 100%;
+  font-family: 'Amiri', sans-serif;
+}
+
+/* .navbar{
+  padding: 0.1rem;
+} */
+
+#custom-nav {
+  /* -webkit-box-shadow: 20px 20px 20px rgb(181, 189, 184);
+  -moz-box-shadow:    20px 20px 20px rgb(181, 189, 184);
+  box-shadow:         10px 10px 10px rgb(181, 189, 184); */
+  z-index:999;
+  margin: 0px;
+  /* background-color: white; */
+}
+.navbar-nav li{
+  padding-right: 20px;
+}
+
+.nav-link{
+  font-size: 1.1em !important;
+  text-align: center;
+}
+
+.icon{
+  font-size: 2rem;
+}
+
+/* .cart{
+  display: inline-block;
+} */
+
+.fa-shopping-cart{
+  color: grey;
+} 
+
+.fa-user{
+  color: white;
+  /* border: black solid 1px; */
+}
+
+.nav-item .dropdown-item :hover  {
+    background-color: green;
+    width: 100%;
+}
+
+.nav-item .p1[data-count]:after{
+  position:absolute;
+  right:25%;
+  top: -2px;
+  content: attr(data-count);
+  padding:.35em;
+  border-radius:65%;
+  border: black solid 1px;
+  line-height:0.6em;
+  color: white;
+  background:rgb(77, 186, 188);
+  text-align:center;
+  min-width: 0.4em;
+  font-weight:bold;
+  font-size:17px;
+  /* -webkit-text-stroke-width:0.01px; */
+  /* -webkit-text-stroke-color:black; */
+}
+
+#special0 {
+  margin-top: -25px;
+  margin-right: 10px;
+}
+
+#special1 {
+  margin-right: -10px;
+  margin-top: -3px;
+}
+
+#special2 {
+  margin-right: -20px;
+  margin-top: -3px;
+}
+.carousel-inner img{
+    object-fit: cover;
+    position:relative;
+    padding-top:12px;
+    perspective:100px;
+    padding-bottom:12px;
+    height:400px;
+    width:100%;
+    /* padding-left:100px; */
+    /* padding-right:100px; */
+}
+.jumbotron{
+  padding: 1rem;
+  border-radius: 0;
+}
+
+.padding{
+  padding-bottom: 2rem;
+}
+
+.welcome{
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+.welcome hr{
+  border-top: 2px solid #b4b4b4;
+  width: 95%;
+  margin-top: 0.3rem;
+  margin-bottom: 1rem;
+}
+
+.fa-cart-plus{
+  color:deepskyblue;
+}
+
+.fa-search-plus{
+  color: orange;
+}
+
+.fa-gift{
+  color: purple;
+}
+
+.fa-cart-plus, .fa-search-plus, .fa-gift{
+  font-size: 4em;
+  margin: 1rem;
+}
+
+.social a{
+  font-size: 4.5em;
+  padding: 3rem;
+}
+
+.fa-facebook{
+  color: #3b5998;
+}
+
+.fa-twitter{
+  color: #00acde;
+}
+
+.fa-google-plus-g{
+  color: #dd4b39;
+}
+
+.fa-instagram{
+  color: #587fa4;
+}
+
+.fa-youtube{
+  color: #bb0000;
+}
+
+.fa-facebook:hover, .fa-twitter:hover, .fa-google-plus-g:hover, .fa-instagram:hover, .fa-youtube:hover{
+  color: #d5d5d5;
+}
+
+footer{
+  background-color: rosybrown;
+  padding-top: 2rem;
+  color: black
+}
+
+hr.light{
+  border-top: 1px solid #d5d5d5;
+  width: 75%;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+footer a{
+  color: #d5d5d5;
+}
+
+hr.light-100{
+  border-top: 1px solid #d5d5d5;
+  width: 100%;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+/*---Media Queries --*/
+@media (max-width: 992px) {
+
+  }
+@media (max-width: 768px) {
+  
+}
+@media (max-width: 576px) {
+  
+}
+
+
+/*---Firefox Bug Fix --*/
+.carousel-item {
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  -webkit-backface-visibility: visible;
+  backface-visibility: visible;
+}
+
+/*--- Fixed Background Image --*/
+figure {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  margin: 0!important;
+}
+.fixed-wrap {
+  clip: rect(0, auto, auto, 0);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+#fixed {
+  background-image: url('img/mac.png');
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+}
+/*--- Bootstrap Padding Fix --*/
+[class*="col-"] {
+    padding: 1rem;
+}
+
+
+.dropdown-menu .dropdown-item {
+    width: 80px;
+}
+
+
+/*
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+*/
+
+
+
+
+
+
+
+

@@ -1,0 +1,185 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Landing Page</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet"> -->
+  <!-- <link href="https://fonts.googleapis.com/css?family=Forte"> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+	<link href="{% static 'home/navbar1.css' %}"  rel="stylesheet">
+</head>
+<body>
+  {% block content %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            {% endfor %}
+        {% endif %}
+
+ <!-- Navigation -->
+<nav class="navbar navbar-expand-md navbar-light bg-light sticky-top" id="custom-nav">
+    <div class="container-fluid ">
+        <a class="navbar-brand waves-effect" href="{% url 'home:landing' %}"><img src="https://image.flaticon.com/icons/png/512/32/32140.png" alt="logo" height="70px"></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item {{home_active}}">
+                    <a class="nav-link" href="{% url 'home:landing' %}">Home</a>
+                </li>
+                <li class="nav-item {{order_active}}">
+                    <a class="nav-link" href="{% url 'cart:searchpage' %}">Order Medicines</a>
+                </li>
+                <li class="nav-item {{doctor_active}}">
+                    <a class="nav-link" href="#">Search Doctors</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                    {%comment%}
+                <li class="nav-item">
+                    {% if request.user.is_authenticated %}
+                    <span class="p1 fa-stack fa-2x has-badge" data-count="{{ num_items_in_cart }}">
+                      <!-- <i class="p2 fa fa-circle fa-stack-2x"></i>  -->
+                    <i class="p3 fas fa-shopping-cart xfa-inverse"></i>
+                    </span>
+                    {% else %}
+                    <span class="p1 fa-stack fa-2x has-badge" data-count="0">
+                        <!-- <i class="p2 fa fa-circle fa-stack-2x"></i>  -->
+                      <i class="p3 fas fa-shopping-cart xfa-inverse"></i>
+                    {% endif %}
+                    <a id="special0" class="nav-link" href="{% url 'cart:shoppingcart' %}">Cart</a>
+                </li>
+                </div>
+                {% if request.user.is_authenticated %}
+                
+                <li class="nav-item">
+                    <a id="special1" class="nav-link" href="{% url 'user:logout' %}">
+                        <i class="fas fa-user icon"></i>
+                        Logout
+                    </a>
+                </li>
+
+                {% else %}
+                <li class="nav-item">
+                    <a id="special2" class="nav-link" href="{% url 'user:mainRegister' %}">
+                        <i class="fas fa-user icon"></i>
+                        Login
+                    </a>
+                </li>
+                {% endif %}{%endcomment%}
+
+                {% if request.user.is_authenticated %}
+                <!-- <div class="cart"> -->
+                <li class="nav-item" id='c1'>
+                <a href="{% url 'cart:shoppingcart' %}"><span class="p1 fa-stack fa-2x has-badge" data-count="{{ num_items_in_cart }}">
+                    <!-- <i class="p2 fa fa-circle fa-stack-2x"></i>  -->
+                  <!-- <i class="p3 fas fa-shopping-cart fa-sm xfa-inverse"></i> -->
+                  <img src="https://cdn0.iconfinder.com/data/icons/webshop-essentials/100/shopping-cart-512.png" height='40px' width='40px'>
+                  </span></a>
+                  
+                </li>
+                <!-- </div> -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      <!-- <i class="fas fa-user fa-sm icon"></i> -->
+                      <img src="https://icons-for-free.com/iconfiles/png/512/friend+human+man+member+person+profile+user+users+icon-1320168707291252637.png" height='40px' width='40px'>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                      aria-labelledby="navbarDropdownMenuLink-333" style="top:45px;right:-14px;">
+                      <a class="dropdown-item" href="{% url 'user:profile' %}">Profile</a>
+                      <a class="dropdown-item" href="{% url 'user:logout' %}">Logout</a>                    </div>
+                  </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'user:mainRegister' %}">
+                        Register
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'user:register'%}">
+                        Login
+                    </a>
+                </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Navbar
+<nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+      aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home
+            <span class="sr-only">(current)</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">Dropdown
+          </a>
+          <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        <li class="nav-item">
+          <a class="nav-link waves-effect waves-light">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link waves-effect waves-light">
+            <i class="fab fa-google-plus-g"></i>
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right dropdown-default"
+            aria-labelledby="navbarDropdownMenuLink-333">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav> -->
+  <!--/.Navbar -->
+
+  {%endblock%}
+</body>
+
+</html>

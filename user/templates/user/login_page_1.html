@@ -1,0 +1,112 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login Page</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <link href="https://fonts.googleapis.com/css?family=Tangerine" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    
+   
+   <!-- <link href="login_page_1.css" rel="stylesheet"> -->
+</head>
+<body>
+   <link href="{% static 'user/login_page_2.css' %}" rel="stylesheet">
+   {% if form.errors %}
+      <!-- Error messaging -->
+      <div id="errors">
+         <div class="inner">
+            {{ form.non_field_errors }}
+            <div class="alert alert-danger" role="alert">
+               {% for field in form %}
+                  {% if field.errors %}{{ field.label }}: {{ field.errors|striptags }}{% endif %}
+               {% endfor %}
+            </div>
+            
+         </div>
+      </div>
+      <!-- /Error messaging -->
+   {% else %}
+   
+   {% endif %}
+<div class="materialContainer">
+
+   <div class="box">
+      
+      <div class="title">LOGIN</div>
+      <form method="POST" action="{% url 'user:login' %}">
+         {% csrf_token %}
+      <div class="input">
+         <!-- <label for="name">Username</label> -->
+         <input type="text" name="username" id="id_username" placeholder="Username" class="login" required>
+         <span class="spin"></span>
+      </div>
+
+      <div class="input">
+         <!-- <label for="pass">Password</label> -->
+         <input type="password" name="password1" id="id_password1" placeholder="Password" class="login" required>
+         <span class="spin"></span>
+      </div>
+
+      <div class="button login">
+         <button type="submit"><span>GO</span> <i class="fa fa-check"></i></button>
+      </div>
+      
+      <a href="{% url 'password_reset' %}" class="pass-forgot">Forgot your password?</a>
+      </form>
+   </div>
+
+   <div class="overbox">
+      <div class="material-button alt-2"><span class="shape"></span></div>
+
+      <div class="title">REGISTER</div>
+      <form method="POST" action="{% url 'user:register' %}">
+         {% csrf_token %}
+
+      <div class="input">
+         <!-- <label for="regname">Username</label> -->
+         <input type="text" name="username" id="id_username" placeholder="Username" class="opaque" required>
+         <span class="spin"></span>
+      </div>
+
+      <div class="input">
+        <!-- <label for="regemail">Email</label> -->
+        <input type="email" name="email" id="email" placeholder="Email" class="opaque" required>
+        <span class="spin"></span>
+     </div>
+
+     <div class="input">
+        <!-- <label for="regemail">Email</label> -->
+        <input type="text" name="phone_no" id="id_phone_no" placeholder="Phone Number" class="opaque" required>
+        <span class="spin"></span>
+     </div>
+
+      <div class="input">
+         <!-- <label for="regpass">Password</label> -->
+         <input type="password" name="password1" id="id_password1" placeholder="Password" class="opaque" required>
+         <span class="spin"></span>
+      </div>
+
+      <div class="input">
+         <!-- <label for="reregpass">Repeat Password</label> -->
+         <input type="password" name="password2" id="id_password2" placeholder="Repeat Password" class="opaque" required>
+         <span class="spin"></span>
+      </div>
+
+      <div class="button">
+         <button type="submit"><span>NEXT</span></button>
+      </div>
+   </form>
+
+   </div>
+
+</div>
+<script src="{% static 'user/login_page_1.js' %}"></script>
+<!-- </body>
+</html> -->

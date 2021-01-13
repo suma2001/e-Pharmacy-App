@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  {% load static %}
+
+  <head>
+  
+    <title>Online Medicine Ordering</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Rubik:400,700|Crimson+Text:400,400i" rel="stylesheet">
+    <link href="{% static 'assets/fonts/icomoon/style.css' %}">
+  
+    <link href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link href="{% static 'assets/css/magnific-popup.css' %}">
+    <link href="{% static 'assets/css/jquery-ui.css' %}">
+    <link href="{% static 'assets/css/owl.carousel.min.css' %}">
+    <link href="{% static 'assets/css/owl.theme.default.min.css' %}">
+  
+  
+    <link href="{% static 'assets/css/aos.css' %}">
+  
+    <link href="{% static 'assets/css/style1.css' %}">
+    <script type="text/javascript" src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  
+  </head>
+  
+<body>
+
+  <div class="site-wrap">
+
+    {% include 'home/header.html' %}
+
+    <div class="bg-light py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Store</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section">
+      <div class="container">
+        
+        <!-- <div class="card">
+          <h5 class="card-header" style="color: black";>Shop Name Goes Here</h5>
+          <div class="card-body">
+            <h5 class="card-title" style="color: black";>Address</h5>
+            <p class="card-text">Door Number, Street Name<br>Landmark, City<br>State, Pincode</p>
+            <a href="#map" class="btn btn-primary">Link to the map</a>
+          </div>
+        </div> -->
+
+        <div class="row" style="padding-left: 10%;">
+          <div class="col-sm-6 col-lg-6">
+          <div class="card">
+            <h5 class="card-header" style="color: black";>Shop Name Goes Here</h5>
+            <div class="card-body">
+              <h5 class="card-title" style="color: black";>Address</h5>
+              <p class="card-text">Door Number, Street Name<br>Landmark, City<br>State, Pincode</p>
+              <a href="#map" class="btn btn-primary">Link to the map</a>
+            </div>
+          </div>
+          </div>
+          <div class="col-sm-6 col-lg-4">
+          <div style="margin-top: 15px; display: grid; grid-template-columns: 2;">
+          <h3 class="mb-3 h6 text-uppercase text-black d-block">Add Medicines</h3>
+          <button type="button" class="btn btn-secondary btn-md dropdown-toggle px-4 col-sm-6 col-lg-7" id="dropdownMenuReference"
+            data-toggle="dropdown">Medicine List</button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+            <a class="dropdown-item" href="#">Dolo-650</a>
+            <a class="dropdown-item" href="#">Paracetamol</a>
+            <a class="dropdown-item" href="#">Cetrizine</a>
+            <a class="dropdown-item" href="#">Dolo-650</a>
+            <a class="dropdown-item" href="#">Paracetamol</a>
+            <a class="dropdown-item" href="#">Cetrizine</a>
+            <a class="dropdown-item" href="#">Dolo-650</a>
+            <a class="dropdown-item" href="#">Paracetamol</a>
+            <a class="dropdown-item" href="#">Cetrizine</a>
+          </div>
+          </div>
+          </div>
+
+          <!-- <div class="dropdown" style="position: relative;">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="dropdownMenuReference">
+              Dropdown button
+            </button>
+            <div class="dropdown-menu" id="#dropdownMenuReference">
+              <a class="dropdown-item" href="#">Normal</a>
+              <a class="dropdown-item active" href="#">Active</a>
+              <a class="dropdown-item disabled" href="#">Disabled</a>
+            </div>
+          </div>
+        </div> -->
+
+        <br>
+        <br>
+        <div class="row" style="padding-left: 11%;">
+          <a href="{% url 'cart:itemlist' %}" class="btn btn-secondary">Link to Item List</a>
+        </div>
+        <br>
+
+        <div class="row" style="padding-left: 11%;">
+          <a href="{% url 'cart:add_item' %}" class="btn btn-secondary">Add New Item</a>
+        </div>
+        
+    
+        <!-- <div class="row">
+          <div class="col-sm-6 col-lg-4 text-center item mb-4">
+            <span class="tag">Sale</span>
+            <a href="shop-single.html"> <img src="images/product_01.png" alt="Image"></a>
+            <h3 class="text-dark"><a href="shop-single.html">Bioderma</a></h3>
+            <p class="price"><del>95.00</del> &mdash; $55.00</p>
+          </div>
+          <div class="col-sm-6 col-lg-4 text-center item mb-4">
+            <a href="shop-single.html"> <img src="images/product_02.png" alt="Image"></a>
+            <h3 class="text-dark"><a href="shop-single.html">Chanca Piedra</a></h3>
+            <p class="price">$70.00</p>
+          </div>
+          <div class="col-sm-6 col-lg-4 text-center item mb-4">
+            <a href="shop-single.html"> <img src="images/product_03.png" alt="Image"></a>
+            <h3 class="text-dark"><a href="shop-single.html">Umcka Cold Care</a></h3>
+            <p class="price">$120.00</p>
+          </div>
+    
+          <div class="col-sm-6 col-lg-4 text-center item mb-4">
+    
+            <a href="shop-single.html"> <img src="images/product_04.png" alt="Image"></a>
+            <h3 class="text-dark"><a href="shop-single.html">Cetyl Pure</a></h3>
+            <p class="price"><del>45.00</del> &mdash; $20.00</p>
+          </div>
+          <div class="col-sm-6 col-lg-4 text-center item mb-4">
+            <a href="shop-single.html"> <img src="images/product_05.png" alt="Image"></a>
+            <h3 class="text-dark"><a href="shop-single.html">CLA Core</a></h3>
+            <p class="price">$38.00</p>
+          </div>
+          <div class="col-sm-6 col-lg-4 text-center item mb-4">
+            <span class="tag">Sale</span>
+            <a href="shop-single.html"> <img src="images/product_06.png" alt="Image"></a>
+            <h3 class="text-dark"><a href="shop-single.html">Poo Pourri</a></h3>
+            <p class="price"><del>$89</del> &mdash; $38.00</p>
+          </div>
+
+          <div class="col-sm-6 col-lg-4 text-center item mb-4">
+            <span class="tag">Sale</span>
+            <a href="shop-single.html"> <img src="images/product_01.png" alt="Image"></a>
+            <h3 class="text-dark"><a href="shop-single.html">Bioderma</a></h3>
+            <p class="price"><del>95.00</del> &mdash; $55.00</p>
+          </div>
+          <div class="col-sm-6 col-lg-4 text-center item mb-4">
+            <a href="shop-single.html"> <img src="images/product_02.png" alt="Image"></a>
+            <h3 class="text-dark"><a href="shop-single.html">Chanca Piedra</a></h3>
+            <p class="price">$70.00</p>
+          </div>
+          <div class="col-sm-6 col-lg-4 text-center item mb-4">
+            <a href="shop-single.html"> <img ˀsrc="images/product_03.png" alt="Image"></a>
+            <h3 class="text-dark"><a href="shop-single.html">Umcka Cold Care</a></h3>
+            <p class="price">$120.00</p>
+          </div>
+          
+          <div class="col-sm-6 col-lg-4 text-center item mb-4">
+          
+            <a href="shop-single.html"> <img src="images/product_04.png" alt="Image"></a>
+            <h3 class="text-dark"><a href="shop-single.html">Cetyl Pure</a></h3>
+            <p class="price"><del>45.00</del> &mdash; $20.00</p>
+          </div>
+          <div class="col-sm-6 col-lg-4 text-center item mb-4">
+            <a href="shop-single.html"> <img src="images/product_05.png" alt="Image"></a>
+            <h3 class="text-dark"><a href="shop-single.html">CLA Core</a></h3>
+            <p class="price">$38.00</p>
+          </div>
+          <div class="col-sm-6 col-lg-4 text-center item mb-4">
+            <span class="tag">Sale</span>
+            <a href="shop-single.html"> <img src="images/product_06.png" alt="Image"></a>
+            <h3 class="text-dark"><a href="shop-single.html">Poo Pourri</a></h3>
+            <p class="price"><del>$89</del> &mdash; $38.00</p>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-md-12 text-center">
+            <div class="site-block-27">
+              <ul>
+                <li><a href="#">&lt;</a></li>
+                <li class="active"><span>1</span></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&gt;</a></li>
+              </ul>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+
+    <!-- this div will hold your map -->
+    <div id="map"></div>
+
+    <!-- this div will hold your store info -->
+    <div id="info_div"></div>
+
+    <br><br><br>
+    <div class="site-section bg-secondary bg-image" style="background-image: url('images/bg_2.jpg');">
+      <div class="container">
+        <div class="row align-items-stretch">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <a href="#" class="part1 banner-1 h-100 d-flex">
+              <div class="banner-1-inner align-self-center">
+                <h2>Pharma Products</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae ex ad minus rem odio voluptatem.
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <a href="#" class="banner-1 h-100 d-flex">
+              <div class="part2 banner-1-inner ml-auto  align-self-center">
+                <h2>Rated by Experts</h2>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae ex ad minus rem odio voluptatem.
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    {% include 'home/footer.html' %}
+  </div>
+
+  <script src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+  <script src="{% static 'js/jquery-ui.js' %}"></script>
+  <script src="{% static 'js/popper.min.js' %}"></script>
+  <script src="{% static 'js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+  <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+  <script src="{% static 'js/aos.js' %}"></script>
+
+  <script src="{% static 'js/main.js' %}"></script>
+  <script>
+    function initMap() {
+      var myMapCenter = {lat: 40.785091, lng: -73.968285};
+    
+      // Create a map object and specify the DOM element for display.
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: myMapCenter,
+        zoom: 14
+      });
+    
+    
+      function markStore(storeInfo){
+    
+        // Create a marker and set its position.
+        var marker = new google.maps.Marker({
+          map: map,
+          position: storeInfo.location,
+          title: storeInfo.name
+        });
+    
+        // show store info when marker is clicked
+        marker.addListener('click', function(){
+          showStoreInfo(storeInfo);
+        });
+      }
+    
+      // show store info in text box
+      function showStoreInfo(storeInfo){
+        var info_div = document.getElementById('info_div');
+        info_div.innerHTML = 'Store name: '
+          + storeInfo.name
+          + '<br>Hours: ' + storeInfo.hours;
+      }
+    
+      var stores = [
+        {
+          name: 'Store 1',
+          location: {lat: 40.785091, lng: -73.968285},
+          hours: '8AM to 10PM'
+        },
+        {
+          name: 'Store 2',
+          location: {lat: 40.790091, lng: -73.968285},
+          hours: '9AM to 9PM'
+        }
+      ];
+    
+      stores.forEach(function(store){
+        markStore(store);
+      });
+    
+    }
+    
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC0jhkrrk8sWpVN0FzRgOcrT6jo8KvHq90&callback=initMap" async defer></script>
+    </body>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+</body>
+
+</html>

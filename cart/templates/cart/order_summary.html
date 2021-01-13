@@ -1,0 +1,60 @@
+{% include 'home/header.html' %}
+{% load static %}
+    <div class="container">
+      
+            <div class="table-responsive text-nowrap">
+                <h2>Order Summary</h2>
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th scope="col">#</th>
+                          <th scope="col">Item Title</th>
+                          <th scope="col">Price</th>
+                          <th scope="col">Quantity</th>
+                          <th scope="col">Total Item Price</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {% for c_item in all_user_items %}
+                        <tr>
+                          <th scope="row">{{ forloop.counter }}</th>
+                          <td>{{ c_item.item.name }}</td>
+                          <td>{{ c_item.item.price }}</td>
+                          <td>{{ c_item.quantity }}</td>
+                          <td>{{ c_item.itemtotal }}</td>
+                          <td>
+                              
+                          </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="5">Your Cart is empty</td>
+                            <td colspan="4">
+                                <a href="/" class='btn btn-warning ml-3'>Continue Shopping</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        {% if object.get_total %}
+                        <!-- <tr>
+                            <td colspan="4">Order Total</td>
+                            <td>${{ object.get_total }}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                <a href="/" class='btn btn-warning float-right ml-3'>Continue Shopping</a>
+                                <a href="/checkout/" class='btn btn-primary float-right'>Proceed to checkout</a>
+                            </td>
+                        </tr>
+                        {% endif %} -->
+                      </tbody>
+                    </table>
+                  
+                  </div>
+
+    </div>
+  <!--Main layout-->
+
+  
+</body>
+
+</html>

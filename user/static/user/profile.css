@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css?family=Amiri');
+body {
+    margin-top: 60px;
+    font-family: 'Amiri', sans-serif;
+}
+.btn {
+    border-radius: 0px;
+}
+.block-heading{
+    padding-top: 50px;
+    margin: 30px;
+    /* text-align: center; */
+    margin-top: 0px;
+    letter-spacing: 0;
+}
+.block-heading h2 {
+	margin-bottom:1.2rem;
+    color: #3b99e0;
+    letter-spacing: 0;
+}
+.content h4 {
+    letter-spacing: 0;
+}
+.content {
+    margin: 30px;
+    letter-spacing: 0;
+}

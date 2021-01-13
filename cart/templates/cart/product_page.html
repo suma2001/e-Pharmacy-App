@@ -1,0 +1,64 @@
+{% include 'home/header.html' %}
+{% load static %}
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Product Page</title>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" />
+    
+</head> -->
+<link rel="stylesheet" href="{% static 'cart/product-page.css' %}">
+    <script src="{% static 'cart/product_page.js' %}"></script>
+<body>
+
+<div class="container">	
+<div class="card">
+<div class="row">
+<aside class="col-sm-5 border-right">
+<article class="gallery-wrap"> 
+<div class="img-big-wrap">
+  <div> <a href="#"><img class="img-fluid" id="change-image" src="{{item.image}}"></a></div>
+</div>
+<div class="img-small-wrap">
+    <div class="item-gallery"> <img class="img-fluid img1" id="change-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ51vSDuotgp6UsSw7G-nzuBewVmpctHvS8mPEsLajFNZ_hoiWf"> </div>
+  <div class="item-gallery"> <img class="img-fluid img2" id="change-image" src="https://www.buy-pharma.md/img/uploads/42678-Absolut-3G-Box-And-Capsules.jpg"> </div>
+  <div class="item-gallery"> <img class="img-fluid img3" id="change-image" src="https://images-na.ssl-images-amazon.com/images/I/7125T4RvGSL._SX679_.jpg"> </div>
+  </div>
+</article>
+	</aside>
+	<aside class="col-sm-7">
+<article class="card-body p-5">
+	<h3 class="title mb-3">{{item.name}}</h3>
+
+<p class="price h3 text-info">Rs. {{item.price}}</p>
+<br>
+<dl class="param param-feature">
+  <dt>Active Ingredients:</dt>
+  <dd>Alpha Lipoic Acid, Folic Acid, Methylcobalamin, Vitamin B1, Vitamin B6 and Vitamin B12</dd>
+</dl> 
+<dl class="param param-feature">
+  <dt>Uses:</dt>
+  <dd>It is taken to regulate certain vital bodily functions like cell multiplication, blood formation, and protein synthesis. It is used to treat Vitamin B12 deficiency in people with Pernicious Anemia.</dd>
+</dl>
+<dl class="param param-feature">
+  <dt>Side Effects</dt>
+  <dd><li>Nausea and vomiting</li>
+  <li>Diarrhea</li>
+  <li>Skin Rash</li></dd>
+</dl>
+<hr>
+
+<a href="{% url 'cart:add_to_cart' item.id %}" class="btn btn-lg btn-outline-primary text-uppercase"> <i class="fas fa-shopping-cart"></i> Add to cart </a>
+</article>
+</aside>
+</div>
+</div>
+</div>
+</body>

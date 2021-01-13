@@ -1,0 +1,25 @@
+{% include 'home/header.html' %}
+
+<div class="bg-light py-3">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong
+            class="text-black">Thank You</strong></div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="site-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <i class="fa fa-check-circle" style="color: green; font-size: 30px;"></i>
+          <h3 class="display-5 text-black">Thank you!</h3>
+          <p class="lead mb-5 text-black">Your order has been successfuly completed.</p>
+          <p><a href="{% url 'cart:searchpage' %}" class="btn btn-md height-auto px-4 py-3 btn-primary">Back to store</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% include 'home/footer.html' %}

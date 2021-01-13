@@ -1,0 +1,130 @@
+{% include 'home/header.html' %}
+{% load static %}
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+	<title>Order Summary</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link href=" https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	
+ </head>
+-->
+<!-- <link href="https://fonts.googleapis.com/css?family=Tangerine"> -->
+<body> 
+	<link rel="stylesheet" href="{% static 'cart/shopping_cart.css' %}">
+	<main class="page">
+		<section class="shopping-cart dark">
+			<div class="container">
+				<br>
+				<br>
+				<div class="block-heading">
+					<h2>Order Summary</h2>
+				</div>
+				<div class="content">
+					<div class="row">
+						<div class="col-md-6 col-lg-8">
+							<div class="items">
+								{% if not all_user_items %}
+								<center style="margin-top: 10%;"><h3>Your cart is empty ...</h3>
+								<!-- <a href="{% url 'cart:searchpage' %}" class='btn btn-warning ml-3'>Continue Shopping</a> -->
+								</center>
+                                <!-- <a href="/checkout/" class='btn btn-primary float-right'>Proceed to checkout</a> -->
+								{% else %}
+								{% for oitem in all_user_items %}
+								<div class="product">
+									<div class="row">
+										<div class="col-md-2">
+											<img class="img-fluid mx-auto d-block image" style="padding-left: 20px;"
+												src="{{oitem.item.image}}">
+										</div>
+										<div class="col-md-10">
+											<div class="info">
+												<div class="row">
+													<div class="col-md-4 product-name">
+														<div class="product-name">
+															<a href="#">{{oitem.item.name}}</a>
+															<div class="product-info">
+
+															</div>
+														</div>
+													</div>
+													<div class="col-md-4 quantity">
+														<a href="{% url 'cart:remove_single_item_from_cart' oitem.item.id %}"><i class="fas fa-minus fa-xs mr-2"></i></a>
+                                    					{{ oitem.quantity }}
+														<a href="{% url 'cart:add_single_item_into_cart' oitem.item.id %}"><i class="fas fa-plus fa-xs ml-2"></i></a>
+													</div>
+													<div class="col-md-4 price">
+														<span id="pr">Rs. {{oitem.itemtotal}}
+													</span>
+														<a href="{% url 'cart:remove_from_cart' oitem.item.id%}"><i class="fas fa-trash fa-xs ml-4"></i></a>
+													</div>
+													
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+								{% endif %}
+								<center><a href="{% url 'cart:searchpage' %}" class='btn btn-warning ml-3'>Continue Shopping</a></center>
+								<!-- <div class="product">
+									<div class="row">
+										<div class="col-md-3">
+											<img class="img-fluid mx-auto d-block image"
+												src="https://www.buy-pharma.md/img/uploads/42678-Absolut-3G-Box-And-Capsules.jpg">
+										</div>
+										<div class="col-md-8">
+											<div class="info">
+												<div class="row">
+													<div class="col-md-5 product-name">
+														<div class="product-name">
+															<a href="#">Lorem Ipsum dolor</a>
+															<div class="product-info">
+
+															</div>
+														</div>
+													</div>
+													<div class="col-md-4 quantity">
+														<label for="quantity">Quantity:</label>
+														<input id="quantity" type="number" value="1"
+															class="form-control quantity-input">
+													</div>
+													<div class="col-md-3 price">
+														<span>$5</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div> -->
+							</div>
+						</div>
+						<div class="col-md-6 col-lg-4">
+							<div class="summary">
+								<h3>Summary</h3>
+								<div class="summary-item"><span class="text">Subtotal</span><span
+										class="price">Rs. {{ tot_cost }}</span></div>
+								<div class="summary-item"><span class="text">Discount</span><span
+										class="price">Rs. 0</span></div>
+								<div class="summary-item"><span class="text">Shipping</span><span
+										class="price">Rs. 0</span></div>
+								<div class="summary-item"><span class="text">Total</span><span class="price">Rs. {{tot_cost}}</span>
+								</div>
+								<br>
+								<a href="{% url 'cart:checkout' %}" type="button" class="btn btn-primary btn-lg btn-block">Checkout</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+</body>
+
+
+<!-- </html> --> 

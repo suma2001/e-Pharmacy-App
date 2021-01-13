@@ -1,0 +1,256 @@
+{% load static %}
+<link href="{% static 'home/style1.css' %}" rel=text/stylesheet>
+
+<body>
+
+  <div class="site-wrap">
+
+    {% include 'home/header.html' %}
+
+    <div class="site-blocks-cover">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
+            <div class="site-block-cover-content text-center">
+              <h2 class="sub-title">Effective Medicine, New Medicine Everyday</h2>
+              <h1>Welcome To Pharma</h1>
+              <p>
+                <a href="{% url 'cart:searchpage' %}" class="btn btn-primary px-5 py-3">Shop Now</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section">
+      <div class="container">
+        <div class="row align-items-stretch section-overlap">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+            <div class="banner-wrap bg-primary h-100">
+              <a href="#" class="h-100">
+                <h5>Free <br> Shipping</h5>
+                <p>
+                  No delivery charges
+                  <strong>Get your medicines at your door, without any extra charge!</strong>
+                </p>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+            <div class="banner-wrap h-100">
+              <a href="#" class="h-100">
+                <h5>Season <br> Sale 50% Off</h5>
+                <p>
+                  Don't miss it
+                  <strong>Hurry now! The sale is about to end.</strong>
+                </p>
+              </a>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+            <div class="banner-wrap bg-warning h-100">
+              <a href="#" class="h-100">
+                <h5>Buy <br> A Gift Card</h5>
+                <p>
+                  To your family or friends
+                  <strong>Gift someone with chronic illness a coupon and help them stay healthy!</strong>
+                </p>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="title-section text-center col-12">
+            <h2 class="text-uppercase">Popular Products</h2>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6 col-lg-4 text-center item mb-4">
+            <span class="tag">Sale</span>
+            <a href="shop-single.html"> <img src="https://www.netmeds.com/images/category/3065/thumb/Mask_gloves_and%20_Protective%20_equipment_0.jpg" alt="Image"></a>
+            <h3 class="text-dark"><a href="shop-single.html">Masks, Gloves and protective equipment</a></h3>
+            <p class="price">Upto 30% off</p>
+          </div>
+          <div class="col-sm-6 col-lg-4 text-center item mb-4">
+            <a href="shop-single.html"> <img src="https://products.dawaai.pk/2014/04/289/zoom/_1_1481131981.jpg" width="200px" height="200px" alt="Image"></a>
+            <h3 class="text-dark"><a href="shop-single.html">Plavix</a></h3>
+            <p class="price">Rs. 27.00</p>
+          </div>
+          <div class="col-sm-6 col-lg-4 text-center item mb-4">
+            <a href="shop-single.html"> <img src="https://sawaleif.com/wp-content/uploads/2020/05/323128_2200-1200x628-1.jpg" width="200px" height="180px" alt="Image" style="padding-top: 40px;"></a>
+            <h3 class="text-dark"><a href="shop-single.html">Metaformin</a></h3>
+            <p class="price">Rs. 130.00</p>
+          </div>
+
+          <div class="col-sm-6 col-lg-4 text-center item mb-4">
+
+            <a href="shop-single.html"> <img src="https://i.pinimg.com/originals/c2/2c/58/c22c584dae72f372bf0b94adfe9c6634.jpg" width="200px" height="200px" alt="Image"></a>
+            <h3 class="text-dark"><a href="shop-single.html">Move Free</a></h3>
+            <p class="price"><del>Rs. 6000</del> &mdash; Rs. 4995</p>
+          </div>
+          <div class="col-sm-6 col-lg-4 text-center item mb-4">
+            <a href="shop-single.html"> <img src="https://images-na.ssl-images-amazon.com/images/I/71zb3d5VXdL._SX466_.jpg" width="200px" height="200px" alt="Image"></a>
+            <h3 class="text-dark"><a href="shop-single.html">Vicks</a></h3>
+            <p class="price">Rs. 20.00</p>
+          </div>
+          <div class="col-sm-6 col-lg-4 text-center item mb-4">
+            <span class="tag">Sale</span>
+            <a href="shop-single.html"> <img src="https://res.cloudinary.com/du8msdgbj/images/a_ignore,w_380,h_380,c_fit,q_auto,f_auto/a_ignore,w_380,h_380,c_fit,q_auto,f_auto/v1589828157/ntryzimuazmbxxupvobw/combiflam-icy-hot-fast-pain-relief-spray.jpg" width="200px" height="200px" alt="Image"></a>
+            <h3 class="text-dark"><a href="shop-single.html">Combiflam</a></h3>
+            <p class="price"><del>Rs. 150</del> &mdash; Rs. 117</p>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-12 text-center">
+            <a href="{% url 'cart:itemlist' %}" class="btn btn-primary px-4 py-3">View All Products</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="site-section bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="title-section text-center col-12">
+            <h2 class="text-uppercase">New Products</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 block-3 products-wrap">
+            <div class="nonloop-block-3 owl-carousel">
+
+              <!-- <div class="text-center item mb-4">
+                <a href="shop-single.html"> <img src="{ % static 'assets/images/product_05.png' %}" alt="Image3"></a>
+                <h3 class="text-dark"><a href="shop-single.html">Umcka Cold Care</a></h3>
+                <p class="price">$120.00</p>
+              </div> -->
+
+              <div class="text-center item mb-4">
+                <a href="shop-single.html"> <img src="{% static 'assets/images/product_01.png' %}" alt="Image"></a>
+                <h3 class="text-dark"><a href="shop-single.html">Bioderma</a></h3>
+                <p class="price">Rs. 620.00</p>
+              </div>
+
+              <div class="text-center item mb-4">
+                <a href="shop-single.html"> <img src="{% static 'assets/images/product_02.png' %}" alt="Image"></a>
+                <h3 class="text-dark"><a href="shop-single.html">Chanca Piedra</a></h3>
+                <p class="price">Rs. 1200.00</p>
+              </div>
+
+              <div class="text-center item mb-4">
+                <a href="shop-single.html"> <img src="{% static 'assets/images/product_04.png' %}" alt="Image"></a>
+                <h3 class="text-dark"><a href="shop-single.html">Cetyl Pure</a></h3>
+                <p class="price">Rs. 560.00</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="title-section text-center col-12">
+            <h2 class="text-uppercase">Testimonials</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 block-3 products-wrap">
+            <div class="nonloop-block-3 no-direction owl-carousel">
+        
+              <div class="testimony">
+                <blockquote>
+                  <img src="{% static 'assets/images/person_1.jpg' %}" alt="Image" class="img-fluid w-25 mb-4 rounded-circle">
+                  <p>&ldquo;Really amazing app, works smoothly and great service. Over and above all of that a 18%* discount! That's a complete wow factor right there. Almost my entire family uses this one. Highly recommend to all.&rdquo;</p>
+                </blockquote>
+
+                <p>&mdash; Kelly Holmes</p>
+              </div>
+        
+              <div class="testimony">
+                <blockquote>
+                  <img src="{% static 'assets/images/person_2.jpg' %}" alt="Image" class="img-fluid w-25 mb-4 rounded-circle">
+                  <p>&ldquo;It's a super cool app with super discounts. Purchasing medicine has become so easy. It takes care of all my family medical needs. Very simple, smooth and useful.&rdquo;</p>
+                </blockquote>
+              
+                <p>&mdash; Rebecca Morando</p>
+              </div>
+        
+              <div class="testimony">
+                <blockquote>
+                  <img src="{% static 'assets/images/person_3.jpg' %}" alt="Image" class="img-fluid w-25 mb-4 rounded-circle">
+                  <p>&ldquo;Pharma has saved lots of time and money by delivering medicines at my home and also giving 18%* discount. I always order medicines in the morning and by evening they get delivered. Too good and easy to use.&rdquo;</p>
+                </blockquote>
+              
+                <p>&mdash; Lucas Gallone</p>
+              </div>
+        
+              <div class="testimony">
+                <blockquote>
+                  <img src="{% static 'assets/images/person_4.jpg' %}" alt="Image" class="img-fluid w-25 mb-4 rounded-circle">
+                  <p>&ldquo;Really amazing app, works smoothly and great service. Over and above all of that a 18%* discount! That's a complete wow factor right there. Almost my entire family uses this one. Highly recommend to all.&rdquo;</p>
+                </blockquote>
+              
+                <p>&mdash; Andrew Neel</p>
+              </div>
+        
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-section bg-secondary bg-image">
+      <div class="container">
+        <div class="row align-items-stretch">
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <a href="#" class="part1 banner-1 h-100 d-flex">
+              <div class="banner-1-inner align-self-center">
+                <h2>Pharma Products</h2>
+                <p>We deliver authentic products which are safe and help you become healthy again
+                </p>
+              </div>
+            </a>
+          </div>
+          <div class="col-lg-6 mb-5 mb-lg-0">
+            <a href="#" class="part2 banner-1 h-100 d-flex">
+              <div class="banner-1-inner ml-auto  align-self-center">
+                <h2>Rated by Experts</h2>
+                <p>Our app has been tried and tested by experts in various fields. They recommend our app too
+                </p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% include 'home/footer.html' %}
+  </div>
+
+  
+
+</body>
+<script type="text/javascript" src="{% static 'assets/js/jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery-ui.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/popper.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'assets/js/aos.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'assets/js/main.js' %}"></script>
+    
+
+</html>

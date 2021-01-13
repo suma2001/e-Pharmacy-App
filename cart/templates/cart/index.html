@@ -1,0 +1,17 @@
+{% include 'home/navbar.html' %}
+
+{% load static %}
+    {% if all_items %}
+    <h4>{{num_items_in_cart}}</h4>
+
+    {% for item in all_items %}
+        <h5>{{ item.name }}</h5>
+        <h5>{{ item.price }}</h5>
+        <form action="{% url 'cart:add_to_cart' item.id %}" method="post">
+            {% csrf_token %}
+            <!-- <input type="number" value="1" name="quantity"> -->
+            <input type="submit" value="add to cart">
+        </form>
+        <br>
+    {% endfor %}
+    {%endif%}

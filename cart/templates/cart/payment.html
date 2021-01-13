@@ -1,0 +1,162 @@
+{% include 'home/header.html' %}
+{% load static %}
+<!-- <!DOCTYPE html> -->
+<!-- <html>
+<head>
+  <title>Payment</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  
+</head> -->
+<head>
+  <style>
+    /* Center the loader */
+    #loader {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      z-index: 1;
+      width: 150px;
+      height: 150px;
+      margin: -75px 0 0 -75px;
+      border: 16px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 16px solid #3498db;
+      width: 120px;
+      height: 120px;
+      -webkit-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+    }
+    
+    @-webkit-keyframes spin {
+      0% { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Add animation to "page content" */
+    .animate-bottom {
+      position: relative;
+      -webkit-animation-name: animatebottom;
+      -webkit-animation-duration: 1s;
+      animation-name: animatebottom;
+      animation-duration: 1s
+    }
+    
+    @-webkit-keyframes animatebottom {
+      from { bottom:-100px; opacity:0 } 
+      to { bottom:0px; opacity:1 }
+    }
+    
+    @keyframes animatebottom { 
+      from{ bottom:-100px; opacity:0 } 
+      to{ bottom:0; opacity:1 }
+    }
+    
+    #myDiv {
+      display: none;
+      text-align: center;
+    }
+    </style>
+</head>
+<link href="https://fonts.googleapis.com/css?family=Amiri" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'cart/payment1.css' %}">
+<body>
+  <main class="page payment-page">
+    <section class="payment-form dark">
+      <div class="container">
+        <div class="block-heading">
+          <h2>Checkout</h2>
+        </div>
+        <form method="POST" action="{% url 'payment:process' %}">
+          {% csrf_token %}
+          <div class="products">
+            {% for oitem in all_items %}
+            <div class="item">
+              <span class="price">Rs. {{oitem.itemtotal}}</span>
+              <p class="item-name">{{oitem.item.name}}</p>
+              <p class="item-description">Qty: {{oitem.quantity}}</p>
+            </div>
+            {% endfor %}
+            <div class="total">Total<span class="price">Rs. {{tot_cost}}</span></div>
+          </div>
+          <div class="card-details">
+            <h3 class="title">Address</h3>
+            <div class="row">
+              <div class="form-group col-sm-12">
+                <label>Full Name</label>
+                <input id="card-holder" type="text" class="form-control" placeholder="Full Name" aria-label="Full Name" aria-describedby="basic-addon1" required>
+              </div>
+              <div class="form-group col-sm-12">
+                <label>Mobile Number</label>
+                <input id="id_phone_no" name="phone_no" type="text" class="form-control" placeholder="Mobile Number" aria-label="Mobile Number" aria-describedby="basic-addon1" required>
+              </div>
+              <div class="form-group col-sm-12">
+                <label for="address">Address</label>
+                <input id="id_address" name = "address" type="text" class="form-control" placeholder="Address" aria-label="Address" aria-describedby="basic-addon1" required>
+              </div>
+              <div class="form-group col-sm-12">
+                <label for="pin">Pincode</label>
+                <input id="id_pincode" name = "pincode" type="text" class="form-control" placeholder="Pincode" aria-label="Pincode" aria-describedby="basic-addon1" required>
+              </div>
+              <div class="form-group col-sm-12">
+                <input type="submit" value="Proceed" class="btn btn-info btn-block">
+                <!-- <a href="{%url 'payment:process' %}" type="button" class="btn btn-primary btn-block">Proceed</a> -->
+                <!-- <div id="loader"></div> -->
+                <!-- <a href="{%url 'payment:process' %}" type="button" class="btn btn-primary ld-ext-right"
+                onclick="this.classList.toggle('running')">
+                  Click Me
+                  <div class="ld ld-ring ld-spin"></div>
+              </a> -->
+                <!-- <button onclick="setTimeout(myFunction, 3000);">Proceed</button> -->
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+//   function myfun(msg,duration)
+// {
+//  var el = '<div class="alert alert-success" role="alert">' + 
+//           '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+//           '<strong>Success!</strong> You have been signed in successfully!' +
+//           '</div>';
+// //  el.setAttribute("style","position:absolute;top:20%;left:20%;background-color:white;");
+//  el.innerHTML = msg;
+//   setTimeout(function() {
+//     $(".alert").fadeTo(7000, 0).slideUp(7000, function(){
+//         $(this).remove(); 
+//     });
+// }, 2000);
+// //  setTimeout(function(){
+// //   el.parentNode.removeChild(el);
+// //  },duration);
+// //  document.body.appendChild(el);
+// }
+var myVar;
+
+function myFunction() {
+  myVar = setTimeout(showPage, 2000);
+}
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+  // setTimeout("window.location='{%url 'payment:process' %}'",2000);
+}
+
+</script>
+</body>
+
+
+<!-- </html> -->

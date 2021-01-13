@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>map test</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,700|Crimson+Text:400,400i" rel="stylesheet">
+<style type="text/css">
+
+/* map needs width and height to appear */
+#map, #map1{
+	width: 900px;
+	max-width: 100%;
+	height: 500px;
+}
+
+.box {
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+	margin-left: 15%; 
+	margin-right: 15%; 
+	padding-top: 5%;
+	padding-bottom: 5%;
+	color: black;
+}
+
+.box1 {
+	box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+	margin: 2%;
+	margin-right: 20%;
+	padding: 10px;
+	border-radius: 2px;
+}
+
+</style>
+
+</head>
+<body>
+	{% include 'home/header.html' %}
+	<br>
+	<br>
+
+	
+	<div class="box">
+		<h3>&nbsp;&nbsp;Medical Shops Near You</h3>
+		{% for shop in shops %}
+		<div class="col-lg-10 box1">
+			<p>Shop Name : {{shop.shop_name}}</p>
+			<p>Address : {{shop.address}}</p>
+			<p>Distance from you : {{shop.distance}}</p>
+		</div>
+		{% endfor %}
+	</div>
+	<br>
+	<center>
+		<div class="p-t-20">
+			<button class="btn btn-secondary btn--radius " onclick="iMap()">Get Nearby Shops</button>
+		</div>
+	</center>
+	<br>
+	
+<!-- 
+<button onclick="getLocation()">Try It</button>
+<button onclick="iMap()">Shop List Map</button> -->
+<!-- this div will hold your map -->
+<center>
+	<div id="map"></div>
+</center>
+
+<br>
+<br>
+<!-- this div will hold your store info -->
+<center>
+	<div class="box">
+		<div id="info_div"></div>
+	</div>
+	
+</center>
+<br>
+<br>
+
+
+{% include 'home/footer.html' %}
+
+ <script>
+	// var list = {{ all_shops }};
+	var list = JSON.parse("{{all_shops|escapejs}}"); 
+	var num = '{{num_shops}}';
+	var sto = new Array();
+    var lati = JSON.parse("{{lati|escapejs}}");
+    var long = '{{loni}}';
+	console.log(lati);
+	console.log(long);
+    lati = parseFloat(lati);
+    long = parseFloat(long);
+function iMap() {
+    console.log(list[0]);
+	for(var i=0;i<num; i++) {
+		sto.push(list[i]);
+	}
+	// stores['key'] = 1;
+	// stores['lat'] = list[0]['lat'];
+	console.log(sto);
+	console.log(lati);
+	console.log(long);
+	lati = 11.5450;
+	long = 79.5212;
+	var myMapCenter = {lat: lati, lng: long };
+    // console.log(myMapCenter);
+
+	// Create a map object and specify the DOM element for display.
+	var map = new google.maps.Map(document.getElementById('map'), {
+		center: myMapCenter,
+		zoom: 14
+	});
+
+
+	function markStore(storeInfo){
+
+		// Create a marker and set its position.
+		var marker = new google.maps.Marker({
+			map: map,
+			position: { lat: storeInfo.lat, lng: storeInfo.lng },
+			title: storeInfo.name
+		});
+
+		// show store info when marker is clicked
+		marker.addListener('click', function(){
+			showStoreInfo(storeInfo);
+		});
+	}
+
+	// show store info in text box
+	function showStoreInfo(storeInfo){
+		var info_div = document.getElementById('info_div');
+		info_div.innerHTML = 'Store name: '
+			+ storeInfo.name
+	}
+
+	var stores = [
+		{
+			name: 'Store 1',
+			location: {lat: 40.785091, lng: -73.968285},
+			hours: '8AM to 10PM'
+		},
+		{
+			name: 'Store 2',
+			location: {lat: 40.790091, lng: -73.968285},
+			hours: '9AM to 9PM'
+		},
+        {
+			name: 'Store 3',
+			location: {lat: 11.535987, lng: 79.4824392},
+			hours: '9AM to 9PM'
+		}
+	];
+
+	sto.forEach(function(st){
+		markStore(st);
+	});
+
+}
+
+var x = document.getElementById("map");
+	function getLocation() {
+	  if (navigator.geolocation) {
+		navigator.geolocation.getCurrentPosition(showPosition);
+	  } else {
+		x.innerHTML = "Geolocation is not supported by this browser.";
+	  }
+	}
+	
+	function showPosition(position) {
+
+	  $.ajax({
+		type: "POST",
+    // points to the url where your data will be posted
+    url:'127.0.0.1:8000/cart/searchnearbyshops/',
+    // post for security reason
+    
+    // data that you will like to return 
+    data: {'lat' : position.coords.latitude, 'lon' : position.coords.longitude, csrfmiddlewaretoken: '{{ csrf_token }}'},
+    // what to do when the call is success 
+    success:function(response){},
+    // what to do when the call is complete ( you can right your clean from code here)
+    complete:function(){},
+    // what to do when there is an error
+    error:function (xhr, textStatus, thrownError){}
+});
+	}
+
+	
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAplTbvTzlep5PRJ5bb4-vgJxWytzmobz4&callback=initMap" async defer></script>
+</body>
+</html>

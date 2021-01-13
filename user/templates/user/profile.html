@@ -1,0 +1,24 @@
+{% include 'home/header.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'user/profile1.css' %}">
+<body>
+  <div class="block-heading">
+     <h3>Profile</h3>
+    </div>
+  <div class="content">
+    <h5><b>Username:</b> {{user.username}}</h5>
+    <h5><b>Address:</b> {{user.profile.address}}</h5>
+    <h5><b>Phone no.:</b> {{user.profile.phone_no}}</h5>
+
+    <h5><b>Cart Items: </b></h5>
+      {% for oitem in all_items %}
+    <h5>&emsp;- {{oitem.item.name}}</h5>
+    {%endfor%}
+    <hr>
+    <br>
+    <a class="btn btn-info mr-3" href="{% url 'password_change' %}">Change Password</a>
+    <a class="btn btn-info" href="{% url 'password_reset' %}">Reset Password</a>
+  </div>
+</body>
+
+
